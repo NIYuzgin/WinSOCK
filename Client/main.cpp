@@ -38,7 +38,7 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	cout << "CLIENT" << endl;
-	//CHAR szError[256] = {};
+	CHAR szError[256] = {};
 
 	//1) init WinSOCK:
 	WSADATA wsaData;
@@ -81,7 +81,7 @@ void main()
 	if (iResult == SOCKET_ERROR)
 	{
 		DWORD dwError = WSAGetLastError();
-		CHAR szError[256] = {};
+		
 		//CHAR szBuffer[256] = {};
 		
 		cout << "Unable to connect to Server." << endl;
