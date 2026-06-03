@@ -116,9 +116,8 @@ void main()
 	{
 		cout << FormatLastError(WSAGetLastError(), szError) << endl;
 		cout << "Shutdown failed: " << WSAGetLastError() << endl;
-		
-		//return;
 	}
+
 	closesocket(connect_socket);
 	freeaddrinfo(result);
 	WSACleanup();
