@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{1833B86A-CDA3-4E59-9591-FAAE52F4D46B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06D16E68-4408-452D-9D63-566432A8541C} = {06D16E68-4408-452D-9D63-566432A8541C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{0B38518C-AB81-4FB4-8F00-04DE0129C581}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06D16E68-4408-452D-9D63-566432A8541C} = {06D16E68-4408-452D-9D63-566432A8541C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FormatLastError", "FormatLastError\FormatLastError.vcxproj", "{06D16E68-4408-452D-9D63-566432A8541C}"
 EndProject

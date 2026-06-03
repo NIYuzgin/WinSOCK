@@ -130,7 +130,6 @@ void main()
 	closesocket(client_socket);
 	closesocket(listen_socket);
 	WSACleanup();
-
 }
 
 VOID ClientHandle(SOCKET client_socket)
