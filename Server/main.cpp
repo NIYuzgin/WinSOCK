@@ -12,8 +12,6 @@
 #include<FormatLastError.h>
 #include<Messages.h>
 
-
-
 using namespace std;
 
 #pragma comment(lib, "WS2_32.lib")
@@ -33,11 +31,12 @@ struct ClientParameters
 {
 	SOCKET client_socket;
 	sockaddr_in clientaddress;
-
 };
 
 VOID ShowActiveClients();
 VOID ClientHandle(SOCKET client_socket);
+VOID Broadcast(CHAR sz_message[], DWORD dwID);
+
 //VOID Release(SOCKET client_socket);
 //VOID ShowActiveClients();
 
@@ -143,6 +142,9 @@ void main()
 		if (g_ActiveClients < MAX_CONNECTIONS)
 		{
 			sockets[g_ActiveClients] = client_socket;
+			
+			cout << client_socket << "\t" << sockets[g_ActiveClients] << endl;
+			
 			hThreads[g_ActiveClients] = CreateThread
 			(
 				NULL,		//Security attributes
@@ -216,9 +218,13 @@ VOID ClientHandle(SOCKET client_socket)
 	INT namelen = sizeof(client_address);
 	getpeername(client_socket, (sockaddr*)&client_address, &namelen);
 	CHAR sz_client_address[32] = {};
+	CHAR sz_client_connected[32] = {};
+
 	sprintf(sz_client_address, "%s:%d - ",inet_ntoa(client_address.sin_addr), ntohs(client_address.sin_port));
-	
+	sprintf(sz_client_connected, "%s CONNECTED",sz_client_address);
+	//Broadcast(sz_client_connected, GetCurrentThreadId());
 	cout << "Client connected:\t" << sz_client_address << "\tSOCKET:\t" << client_socket << endl;
+	
 	INT iResult = 0;
 	DWORD dwError = 0;
 	CHAR szError[256] = {};
@@ -234,7 +240,10 @@ VOID ClientHandle(SOCKET client_socket)
 		if (iResult > 0)
 		{
 			cout << sz_client_address << recvbuffer << "(" << strlen(recvbuffer) << " Bytes)" << endl;
-			iSendResult = send(client_socket, recvbuffer, strlen(recvbuffer), 0);
+			sprintf(sendbuffer, "%s%s", sz_client_address, recvbuffer);
+			Broadcast(sendbuffer, GetCurrentThreadId());
+			//iSendResult = send(client_socket, recvbuffer, strlen(recvbuffer), 0);
+			
 			dwError = WSAGetLastError();
 			if (iSendResult == SOCKET_ERROR)
 			{
@@ -298,5 +307,16 @@ VOID ShowActiveClients()
 	SetConsoleCursorPosition(hConsole, cursor);
 	cout << "Количество подключений: " << g_ActiveClients;
 	SetConsoleCursorPosition(hConsole, info.dwCursorPosition);
+
+}
+
+VOID Broadcast(CHAR sz_message[], DWORD dwID)
+{
+	for (INT i = 0; i < g_ActiveClients; i++)
+	{
+		if (dwThreadIDs[i] != dwID)
+			send(sockets[i], sz_message, strlen(sz_message),0);
+	}
+
 
 }
