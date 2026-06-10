@@ -77,7 +77,6 @@ void main()
 		WSACleanup();
 		return;
 	}
-
 	//3) Создаем сокет для сервера, который он будет постоянно слушать "LISTENING":
 	SOCKET listen_socket =
 		socket(result->ai_family, result->ai_socktype, result->ai_protocol);
@@ -90,7 +89,6 @@ void main()
 		WSACleanup();
 		return;
 	}
-
 	//4) Bind socket:
 	iResult = bind(listen_socket, result->ai_addr, result->ai_addrlen);
 	dwError = WSAGetLastError();
