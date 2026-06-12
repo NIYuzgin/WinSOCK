@@ -151,9 +151,10 @@ VOID Receive(SOCKET connect_socket)
 		else
 		{
 			cout << FormatLastError(WSAGetLastError(), szError) << endl; //cout << "Receive failed:\t" << WSAGetLastError() << endl;
+			break;
 		}
 			
-	} while (strcmp(recvbuffer, DECLINE_MESSAGE) != 0 && dwError >= 0);
+	} while (strcmp(recvbuffer, DECLINE_MESSAGE) != 0);
 
 		if (strcmp(recvbuffer, DECLINE_MESSAGE) == 0)
 		{
