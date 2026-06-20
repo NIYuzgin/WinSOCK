@@ -17,6 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FormatLastError", "FormatLa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Threads", "Threads\Threads.vcxproj", "{2B142AE5-0044-4E5A-A90B-1AC4558C0B42}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloMPI", "HelloMPI\HelloMPI.vcxproj", "{A57964DA-2CA3-4215-A9A9-88098A3FC21B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenMPI", "OpenMPI\OpenMPI.vcxproj", "{722A2576-6AD6-45A2-9438-216C04C2193E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -57,6 +61,22 @@ Global
 		{2B142AE5-0044-4E5A-A90B-1AC4558C0B42}.Release|x64.Build.0 = Release|x64
 		{2B142AE5-0044-4E5A-A90B-1AC4558C0B42}.Release|x86.ActiveCfg = Release|Win32
 		{2B142AE5-0044-4E5A-A90B-1AC4558C0B42}.Release|x86.Build.0 = Release|Win32
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Debug|x64.ActiveCfg = Debug|x64
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Debug|x64.Build.0 = Debug|x64
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Debug|x86.ActiveCfg = Debug|Win32
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Debug|x86.Build.0 = Debug|Win32
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Release|x64.ActiveCfg = Release|x64
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Release|x64.Build.0 = Release|x64
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Release|x86.ActiveCfg = Release|Win32
+		{A57964DA-2CA3-4215-A9A9-88098A3FC21B}.Release|x86.Build.0 = Release|Win32
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Debug|x64.ActiveCfg = Debug|x64
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Debug|x64.Build.0 = Debug|x64
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Debug|x86.ActiveCfg = Debug|Win32
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Debug|x86.Build.0 = Debug|Win32
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Release|x64.ActiveCfg = Release|x64
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Release|x64.Build.0 = Release|x64
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Release|x86.ActiveCfg = Release|Win32
+		{722A2576-6AD6-45A2-9438-216C04C2193E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
